@@ -6,7 +6,7 @@ class Messages extends React.Component {
 
   render () {
     const messages = this.props.messages.map((message,idx) => {
-      return <Message key={idx} message={message} />
+      return <Message key={idx} message={message} handleStar={this.props.handleStar} />
     })
     return (
       <div className='messages'>

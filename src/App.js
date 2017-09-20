@@ -67,11 +67,15 @@ class App extends Component {
     ]
   }
 
+handleStar = () => {
+
+}
+
   render() {
     return (
       <div className="App">
         <Toolbar />
-        <Messages messages={this.state.messages}/>
+        <Messages messages={this.state.messages} handleStar={this.handleStar}/>
       </div>
     );
   }
