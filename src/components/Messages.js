@@ -1,17 +1,18 @@
 import React from 'react'
-import App from '../App'
+import Message from './Message'
 
-const Messages = ({messages}) =>{
+class Messages extends React.Component {
 
-let messageList = messages.map(message => {
-  <p>{message}</p>
-})
 
-return (
-  <div>
-    <p>Messages</p>
-
-  </div>
-)
+  render () {
+    const messages = this.props.messages.map((message,idx) => {
+      return <Message key={idx} message={message} />
+    })
+    return (
+      <div className='messages'>
+        {messages}
+      </div>
+    )
+  }
 }
 export default Messages

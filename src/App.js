@@ -71,7 +71,7 @@ class App extends Component {
     return (
       <div className="App">
         <Toolbar />
-        <Messages />
+        <Messages messages={this.state.messages}/>
       </div>
     );
   }
