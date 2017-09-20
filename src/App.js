@@ -67,15 +67,34 @@ class App extends Component {
     ]
   }
 
-handleStar = () => {
+handleStar = (id) => {
+  let messages = this.state.messages;
+  messages = messages.map(message => {
+    if (message.id === id) {
+      message.starred = !message.starred
+    }
+    return message
+  })
+  this.setState({messages: messages})
+}
 
+handleCheckbox = (id) => {
+  let messages = this.state.messages;
+  messages = messages.map(message => {
+    if (message.id === id) {
+      message.selected = message.selected ? false : true
+    }
+    return message
+  })
+  this.setState({messages: messages})
 }
 
   render() {
     return (
       <div className="App">
         <Toolbar />
-        <Messages messages={this.state.messages} handleStar={this.handleStar}/>
+        <Messages messages={this.state.messages} handleStar={this.handleStar}
+        handleCheckbox={this.handleCheckbox}/>
       </div>
     );
   }

@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react';
 import Message from './Message'
 
-class Messages extends React.Component {
-
-
+class Messages extends Component {
   render () {
     const messages = this.props.messages.map((message,idx) => {
-      return <Message key={idx} message={message} handleStar={this.props.handleStar} />
+      return <Message key={idx} message={message}
+      handleStar={this.props.handleStar}
+      handleCheckbox={this.props.handleCheckbox}/>
     })
     return (
-      <div className='messages'>
+      <div className="messages">
         {messages}
       </div>
-    )
+    );
   }
 }
-export default Messages
+export default Messages;
