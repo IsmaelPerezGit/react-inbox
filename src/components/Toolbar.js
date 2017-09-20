@@ -10,7 +10,7 @@ class Toolbar extends React.Component {
             unread messages
           </p>
 
-          <button className="btn btn-default">
+          <button className="btn btn-default" onClick={this.props.handleBulk}>
             <i className="fa fa-check-square-o"></i>
           </button>
 

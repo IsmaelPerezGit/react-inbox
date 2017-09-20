@@ -89,10 +89,26 @@ handleCheckbox = (id) => {
   this.setState({messages: messages})
 }
 
+handleBulk = () => {
+  let messages = this.state.messages;
+  if(messages.every(isSelected)){
+    messages = messages.map(message => {
+      message.selected = false;
+      return message;
+    })
+  } else {
+    messages = messages.map(message => {
+      message.selected = true;
+      return message;
+    })
+  }
+  this.setState({messages: messages})
+}
+
   render() {
     return (
       <div className="App">
-        <Toolbar />
+        <Toolbar handleBulk={this.handleBulk}/>
         <Messages messages={this.state.messages} handleStar={this.handleStar}
         handleCheckbox={this.handleCheckbox}/>
       </div>
@@ -100,4 +116,8 @@ handleCheckbox = (id) => {
   }
 }
 
-export default App;
+function isSelected(message) {
+  return message.selected
+}
+
+export default App
